@@ -20,9 +20,7 @@ body {
 }
 
 #container {
-	display: inline-block;
-	margin: 20px auto;
-	box-shadow: 0 0 16px rgba(0,0,0,0.5);
+
 }
 
 #container > * {
@@ -112,4 +110,7 @@ input::-webkit-slider-thumb {
 	height: 16px;
 	border-radius: 3px;
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #aaa), color-stop(1, #aaa) );
+}
+.hidden{
+	display: none;
 }

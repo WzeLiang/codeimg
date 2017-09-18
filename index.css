@@ -1,0 +1,54 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#container{
+    width: 5rem;
+    padding: .5rem;
+}
+#container img{
+    width: 100%;
+}
+.out{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    transition: all 1s ease;
+    background: rgba(0,0,0,.6);
+    color: white;
+
+}
+.out label,.out input,.out select{
+    display: inline-block;
+    width: 40%;
+    font-size: .25rem;
+}
+.in{
+    width: 100%;
+    height: 100%;
+
+}
+.in label,.in input,.in select{
+    display: inline-block;
+    width: 40%;
+    font-size: .25rem;
+}
+#btn{
+    width: 100%;
+    position:fixed;
+    bottom: 0;
+    font-size: .3rem;
+}
+#btn .out-btn,#btn .in-btn{
+    display: inline-block;
+    text-align: center;
+    padding: .2rem 0;
+    width: 50%;
+    background: grey;
+    color: white;
+}
+.hidden{
+    display: none!important;
+}

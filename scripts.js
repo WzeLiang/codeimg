@@ -1,4 +1,4 @@
-﻿
+
 var isOpera = Object.prototype.toString.call(window.opera) == '[object Opera]',
 
 	guiValuePairs = [
