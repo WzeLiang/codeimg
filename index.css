@@ -1,10 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 #container{
     width: 5rem;
     padding: .5rem;
+    margin: 0;
+    font-size: 0;
 }
 #container img{
     width: 100%;
@@ -28,6 +35,12 @@ body{
 .in{
     width: 100%;
     height: 100%;
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    transition: all 1s ease;
+    background: rgba(0,0,0,.6);
+    color: white;
 
 }
 .in label,.in input,.in select{

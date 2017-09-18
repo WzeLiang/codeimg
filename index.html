@@ -77,19 +77,19 @@
 		<input id="label" type="text" value="jQuery.qrcode" />
 		<label for="fontsize">文字大小</label>
 		<input id="fontsize" type="range" value="11" min="1" max="20" step="1" />
-		<label for="font">FONT NAME</label>
-		<input id="font" type="text" value="Ubuntu" />
+		<label class="hidden"  for="font">FONT NAME</label>
+		<input class="hidden" id="font" type="text" value="Ubuntu" />
 		<label for="fontcolor">文字颜色:</label>
 		<input id="fontcolor" type="color" value="#ff9818" />
 		<hr/>
 		<label for="image">IMAGE</label>
 		<input id="image" type="file" />
 		<label for="imagesize">图片大小</label>
-		<input id="imagesize" type="range" value="13" min="1" max="30" step="1" />
+		<input id="imagesize" type="range" value="20" min="1" max="30" step="1" />
 	</div>
 
-	<!--<img id="img-buffer" src="dummy.png" />-->
-	<!--<div style="text-align:center;clear:both">-->
+	<img class="hidden" id="img-buffer" src="微信图片_20170413150052.jpg" />
+	<div style="text-align:center;clear:both">
 
 </div>
 <div id="btn">
@@ -98,9 +98,29 @@
 </div>
 	<script>
 		$(function () {
+            var a=1;
+            var b=1
 			$(".out-btn").click(function () {
-				$(".out").css("bottom",'0')
+				if(a){
+                    $(".out").css("bottom","0")
+                    $(".in").css("bottom","-100%");
+					a=0
+				}else {
+                    $(".out").css("bottom","-100%");
+                    a=1
+				}
+            });
+            $(".in-btn").click(function () {
+                if(b){
+                    $(".in").css("bottom","0")
+                    $(".out").css("bottom","-100%");
+                    b=0
+                }else {
+                    $(".in").css("bottom","-100%");
+                    b=1
+                }
             })
+
         })
 	</script>
 </body>
