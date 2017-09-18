@@ -1,19 +1,39 @@
-﻿/*! jQuery.qrcode 0.6.0 - //larsjung.de/qrcode - MIT License */
+/*! jQuery.qrcode 0.6.0 - //larsjung.de/qrcode - MIT License */
 
 // Uses [QR Code Generator](http://www.d-project.com/qrcode/index.html) (MIT), appended to the end of this file.
 // Kudos to [jquery.qrcode.js](http://github.com/jeromeetienne/jquery-qrcode) (MIT).
 
 (function ($) {
 	'use strict';
+    function utf16to8(str) {
+        var out, i, len, c;
+        out = "";
+        len = str.length;
+        for(i = 0; i < len; i++) {
+            c = str.charCodeAt(i);
+            if ((c >= 0x0001) && (c <= 0x007F)) {
+                out += str.charAt(i);
+            } else if (c > 0x07FF) {
+                out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                out += String.fromCharCode(0x80 | ((c >>  6) & 0x3F));
+                out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));
+            } else {
+                out += String.fromCharCode(0xC0 | ((c >>  6) & 0x1F));
+                out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));
+            }
+        }
+        return out;
+    }
 
 
-		// Wrapper for the original QR code generator.
+
+    // Wrapper for the original QR code generator.
 	var QRCode = function (text, level, version, quiet) {
 
 			// `qrcode` is the single public function that will be defined by the `QR Code Generator`
 			// at the end of the file.
 			var qr = qrcode(version, level);
-			qr.addData(text);
+			qr.addData(utf16to8(text));
 			qr.make();
 
 			quiet = quiet || 0;
