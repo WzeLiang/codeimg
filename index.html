@@ -8,7 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport"
 		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>���ɶ�ά��</title>
+	<title>生成二维码</title>
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet'>
 	<!--<link href='styles.css' rel='stylesheet'>-->
 	<link rel="stylesheet" href="./index.css">
@@ -32,69 +32,69 @@
 			<option value="div">DIV</option>
 		</select>
 
-		<label class="hidden" for="size">�ߴ�</label>
+		<label class="hidden" for="size">尺寸</label>
 		<input class="hidden" id="size" type="range" value="200" min="100" max="1000" step="50" />
 
-		<label for="color">��ɫ</label>
+		<label for="color">颜色</label>
 		<input id="color" type="color" value="#000000" />
 
-		<label for="bg-color">������ɫ</label>
+		<label for="bg-color">背景颜色</label>
 		<input id="bg-color" type="color" value="#ffffff" />
 
-		<label for="text">ת������</label>
+		<label for="text">转义内容</label>
 		<textarea id="text">http://sc.chinaz.com/</textarea>
 		<hr/>
 
-		<label for="minversion">���ȼ�:</label>
+		<label for="minversion">填充等级:</label>
 		<input id="minversion" type="range" value="6" min="1" max="10" step="1" />
 
-		<label for="eclevel">�ݴ���</label>
+		<label for="eclevel">容错率</label>
 		<select id="eclevel">
-			<option value="L">��</option>
-			<option value="M">��</option>
-			<option value="Q">ƫ��</option>
-			<option value="H" selected="selected">��</option>
+			<option value="L">低</option>
+			<option value="M">中</option>
+			<option value="Q">偏高</option>
+			<option value="H" selected="selected">高</option>
 		</select>
 
-		<label for="quiet">�߿��С</label>
+		<label for="quiet">边框大小</label>
 		<input id="quiet" type="range" value="1" min="0" max="4" step="2" />
 
-		<label for="radius">Բ�ǰ뾶</label>
+		<label for="radius">圆角半径</label>
 		<input id="radius" type="range" value="50" min="0" max="50" step="10" />
 		<!-- <hr/> -->
 		<!-- <a id="download" download="qrcode.png">DOWNLOAD</a> -->
 	</div>
 
 	<div class="control in right">
-		<label for="mode">��������</label>
+		<label for="mode">中心内容</label>
 		<select id="mode">
-			<option value="0">Ĭ��</option>
-			<option value="2" selected="selected">����</option>
-			<option value="4">ͼƬ</option>
+			<option value="0">默认</option>
+			<option value="2" selected="selected">文字</option>
+			<option value="4">图片</option>
 		</select>
 		<hr/>
-		<label for="label">��������</label>
-		<input id="label" type="text" value="jQuery.qrcode" />
-		<label for="fontsize">���ִ�С</label>
+		<label for="label">中心文字</label>
+		<input id="label" type="text" value="Nomore" />
+		<label for="fontsize">文字大小</label>
 		<input id="fontsize" type="range" value="11" min="1" max="20" step="1" />
 		<label class="hidden"  for="font">FONT NAME</label>
 		<input class="hidden" id="font" type="text" value="Ubuntu" />
-		<label for="fontcolor">������ɫ:</label>
+		<label for="fontcolor">文字颜色:</label>
 		<input id="fontcolor" type="color" value="#ff9818" />
 		<hr/>
 		<label for="image">IMAGE</label>
 		<input id="image" type="file" />
-		<label for="imagesize">ͼƬ��С</label>
+		<label for="imagesize">图片大小</label>
 		<input id="imagesize" type="range" value="20" min="1" max="30" step="1" />
 	</div>
 
-	<img class="hidden" id="img-buffer" src="΢��ͼƬ_20170413150052.jpg" />
+	<img class="hidden" id="img-buffer" src="微信图片_20170413150052.jpg" />
 	<div style="text-align:center;clear:both">
 
 </div>
 <div id="btn">
-	<span class="out-btn">����</span><!--
-	--><span class="in-btn">�ڲ�</span>
+	<span class="out-btn">轮廓</span><!--
+	--><span class="in-btn">内部</span>
 </div>
 	<script>
 		$(function () {
@@ -105,6 +105,7 @@
                     $(".out").css("bottom","0")
                     $(".in").css("bottom","-100%");
 					a=0
+                    b=1
 				}else {
                     $(".out").css("bottom","-100%");
                     a=1
@@ -115,6 +116,7 @@
                     $(".in").css("bottom","0")
                     $(".out").css("bottom","-100%");
                     b=0
+					a=1
                 }else {
                     $(".in").css("bottom","-100%");
                     b=1
