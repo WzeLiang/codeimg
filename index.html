@@ -142,26 +142,31 @@
             var b=1
 			$(".out-btn").click(function () {
 				if(a){
+                    $(".out").css("display","block")
                     $(".out").css("bottom","0")
                     $(".in").css("bottom","-100%");
 					a=0
                     b=1
 				}else {
                     $(".out").css("bottom","-100%");
+                    $(".out").css("display","none")
                     a=1
 				}
             });
             $(".in-btn").click(function () {
                 if(b){
+                    $(".in").css("display","block")
                     $(".in").css("bottom","0")
                     $(".out").css("bottom","-100%");
                     b=0
 					a=1
                 }else {
                     $(".in").css("bottom","-100%");
+                    $(".in").css("display","none")
                     b=1
                 }
             })
+
 			$(".close-out").click(function () {
                 $(".out").css("bottom","-100%");
             });
