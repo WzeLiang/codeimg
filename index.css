@@ -20,6 +20,7 @@ body{
     border: 1px solid black;
 }
 .out{
+    padding: .2rem;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -30,12 +31,24 @@ body{
     color: white;
 
 }
-.out label,.out input,.out select{
+.out label{
     display: inline-block;
-    width: 40%;
+    width: 30%;
     font-size: .25rem;
+    border: none;
+    height: 100%;
+    outline: none;
+}
+.out input,.out select{
+    display: inline-block;
+    width: 65%;
+    font-size: .25rem;
+    border: none;
+    height: 100%;
+    outline: none;
 }
 .in{
+    padding: .2rem;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -46,10 +59,21 @@ body{
     color: white;
 
 }
-.in label,.in input,.in select{
+.in label{
     display: inline-block;
-    width: 40%;
+    width: 30%;
     font-size: .25rem;
+    border: none;
+    height: 100%;
+    outline: none;
+}
+.in input,.in select{
+    display: inline-block;
+    width: 65%;
+    font-size: .25rem;
+    border: none;
+    height: 100%;
+    outline: none;
 }
 #btn{
     width: 100%;

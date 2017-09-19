@@ -11,6 +11,7 @@
 	<title>生成二维码</title>
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet'>
 	<!--<link href='styles.css' rel='stylesheet'>-->
+	<link rel="stylesheet" href="bootstrap.min.css">
 	<link rel="stylesheet" href="./index.css">
 	<script src="config.js"></script>
 	<script src="jquery-1.10.2.js" ></script>
@@ -35,57 +36,89 @@
 		<label class="hidden" for="size">尺寸</label>
 		<input class="hidden" id="size" type="range" value="200" min="100" max="1000" step="50" />
 
-		<label for="color">颜色</label>
-		<input id="color" type="color" value="#000000" />
+		<div class="form-group">
+			<label for="color">颜色</label>
+			<input id="color" class="form-control" type="color" value="#000000" />
+		</div>
 
-		<label for="bg-color">背景颜色</label>
-		<input id="bg-color" type="color" value="#ffffff" />
+		<div class="form-group">
+			<label for="bg-color">背景颜色</label>
+			<input id="bg-color"  class="form-control" type="color" value="#ffffff" />
+		</div>
 
-		<label for="text">转义内容</label>
-		<textarea id="text">http://sc.chinaz.com/</textarea>
-		<hr/>
+		<div class="form-group">
+			<label for="text">转义内容</label>
+			<textarea class="form-control" id="text">http://sc.chinaz.com/</textarea>
+		</div>
 
-		<label for="minversion">填充等级:</label>
-		<input id="minversion" type="range" value="6" min="1" max="10" step="1" />
+		<div class="form-group">
+			<label for="minversion">填充等级:</label>
+			<input class="form-control" id="minversion" type="range" value="6" min="1" max="10" step="1" />
+		</div>
 
-		<label for="eclevel">容错率</label>
-		<select id="eclevel">
-			<option value="L">低</option>
-			<option value="M">中</option>
-			<option value="Q">偏高</option>
-			<option value="H" selected="selected">高</option>
-		</select>
+		<div class="form-group">
+			<label for="eclevel">容错率</label>
+			<select class="form-control" id="eclevel">
+				<option value="L">低</option>
+				<option value="M">中</option>
+				<option value="Q">偏高</option>
+				<option value="H" selected="selected">高</option>
+			</select>
+		</div>
 
-		<label for="quiet">边框大小</label>
-		<input id="quiet" type="range" value="1" min="0" max="4" step="2" />
+		<div class="form-group">
+			<label for="quiet">边框大小</label>
+			<input class="form-control" id="quiet" type="range" value="1" min="0" max="4" step="2" />
+		</div>
 
-		<label for="radius">圆角半径</label>
-		<input id="radius" type="range" value="50" min="0" max="50" step="10" />
-		<!-- <hr/> -->
-		<!-- <a id="download" download="qrcode.png">DOWNLOAD</a> -->
+		<div class="form-group">
+			<label for="radius">圆角半径</label>
+			<input class="form-control" id="radius" type="range" value="50" min="0" max="50" step="10" />
+		</div>
+
+		 <!--<a id="download" download="qrcode.png">DOWNLOAD</a> -->
 	</div>
 
 	<div class="control in right">
-		<label for="mode">中心内容</label>
-		<select id="mode">
-			<option value="0">默认</option>
-			<option value="2" selected="selected">文字</option>
-			<option value="4">图片</option>
-		</select>
-		<hr/>
-		<label for="label">中心文字</label>
-		<input id="label" type="text" value="Nomore" />
-		<label for="fontsize">文字大小</label>
-		<input id="fontsize" type="range" value="11" min="1" max="20" step="1" />
-		<label class="hidden"  for="font">FONT NAME</label>
-		<input class="hidden" id="font" type="text" value="Ubuntu" />
-		<label for="fontcolor">文字颜色:</label>
-		<input id="fontcolor" type="color" value="#ff9818" />
-		<hr/>
-		<label for="image">IMAGE</label>
-		<input id="image" type="file" />
-		<label for="imagesize">图片大小</label>
-		<input id="imagesize" type="range" value="20" min="1" max="30" step="1" />
+		<div class="form-group">
+			<label for="mode">中心内容</label>
+			<select class="form-control" id="mode">
+				<option value="0">默认</option>
+				<option value="2" selected="selected">文字</option>
+				<option value="4">图片</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="label">中心文字</label>
+			<input class="form-control" id="label" type="text" value="Nomore" />
+		</div>
+
+		<div class="form-group">
+			<label for="fontsize">文字大小</label>
+			<input class="form-control" id="fontsize" type="range" value="11" min="1" max="20" step="1" />
+		</div>
+
+		<div class="form-group hidden">
+			<label class="hidden"  for="font">FONT NAME</label>
+			<input class="form-control" class="hidden" id="font" type="text" value="Ubuntu" />
+		</div>
+
+		<div class="form-group">
+			<label for="fontcolor">文字颜色:</label>
+			<input class="form-control" id="fontcolor" type="color" value="#ff9818" />
+		</div>
+
+
+		<div class="form-group">
+			<label for="image">IMAGE</label>
+			<input class="form-control" id="image" type="file" />
+		</div>
+
+		<div class="form-group">
+			<label for="imagesize">图片大小</label>
+			<input class="form-control" id="imagesize" type="range" value="20" min="1" max="30" step="1" />
+		</div>
 	</div>
 
 	<img class="hidden" id="img-buffer" src="微信图片_20170413150052.jpg" />
@@ -102,7 +135,7 @@
             var b=1
 			$(".out-btn").click(function () {
 				if(a){
-                    $(".out").css("bottom","0")
+                    $(".out").css("bottom","-4rem")
                     $(".in").css("bottom","-100%");
 					a=0
                     b=1
@@ -113,7 +146,7 @@
             });
             $(".in-btn").click(function () {
                 if(b){
-                    $(".in").css("bottom","0")
+                    $(".in").css("bottom","-5rem")
                     $(".out").css("bottom","-100%");
                     b=0
 					a=1
